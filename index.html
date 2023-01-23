@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure-Handson</title>
+</head>
+<style>
+    body{
+        background-color: rgb(3, 9, 9);
+        color: rgb(193, 193, 187);
+        padding: 15px;
+        font-weight: bold;
+    }
+    h1{
+        background-color: cornflowerblue;
+        padding: 5px;
+        color: black;
+        font-weight: bold;
+    }
+    pre{
+        background-color: rgb(170, 152, 128);
+        border-radius: 10px;
+        color: rgb(7, 2, 11);
+        padding: 20px;
+    }
+</style>
+<body>
+    <h1>Closure-Handson</h1>
+    <p>Question No - 1</p>
+<pre>function counter(){
+    var counter = 0;
+    function IncreaseCounter() {
+        return counter += 1;
+    };
+    return IncreaseCounter;
+}
+var counter = counter();
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());
+
+//OUTPUT: getting alert with values 1,2,3,4</pre>
+<p>Question No - 2</p>
+<pre>let count = 0;
+    (function () {
+    if (count === 0) {
+    let count = 1;
+    console.log(count); 
+    }
+    
+    })();
+    
+    // OUTPUT: 1</pre>
+    <p>Question No - 3</p>
+    <pre>for (var i = 0; i < 3; i++) {
+        setTimeout(function log() {
+          console.log(i); 
+        }, 1000);
+      }
+    
+    // Output: 3 will be printed 3 times in 1sec difference  </pre>
+    <p>Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</p>
+    <pre>function OuterFunction() {
+        let length = 20;
+        function InnerFunction() {
+            let breadth=50;
+            console,console.log(`The area of the rectangle is:->`
+            ,length*breadth);
+        }
+        return InnerFunction;
+    }
+    var innerFunc = OuterFunction();
+    innerFunc();
+
+   // Output: The area of the rectangle is:-> 1000</pre>
+   <p>Take a variable in outer function and create an inner function to increase the counter every time it is called</p>
+   <pre>function counter(){
+    var counter = 0;
+    function IncreaseCounter() {
+        return counter += 1;
+    };
+    return IncreaseCounter;
+}
+var counter = counter();
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());
+</pre>
+<p>Question No - 6</p>
+<pre>var a = 12;
+    (function () {
+    alert(a);
+    })();
+
+    //OUTPUT:getting alert with value 12</pre>
+    <p>Question No - 7 </p>
+    <pre> var a = 10;
+        var x = (function () {
+        var a = 12;
+        return function () {
+        alert(a);
+        };
+        })();
+        x();
+
+        // Output: getting alert with value 12
+</pre>
+<p>Question No - 8</p>
+<pre> var globalVar = "xyz";
+    (function outerFunc(outerArg) {
+        var outerVar = 'a';
+        (function innerFunc(innerArg) {
+        var innerVar = 'b';
+        console.log(
+            "outerArg = " + outerArg + "\n" +
+            "innerArg = " + innerArg + "\n" +
+            "outerVar = " + outerVar + "\n" +
+            "innerVar = " + innerVar + "\n" +
+            "globalVar = " + globalVar);
+        })(456);
+    })(123);
+
+OUTPUT 
+        outerArg = 123
+        innerArg = 456
+        outerVar = a
+        innerVar = b
+        globalVar = xyz  
+    </pre>
+   <script src="./main.js"></script>
+</body>
+</html>
